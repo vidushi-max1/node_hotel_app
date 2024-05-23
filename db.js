@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 //mongoose create default object that represents mongoDB connection
-const db = mongoose.connect('mongodb://0.0.0.0:27017/hotel')
+const db = mongoose.connect('mongodb+srv://boombeera:boombeera7@hotel.2syffdv.mongodb.net/')
 .then(() => {
     console.log('Connected to MongoDB');
 })
