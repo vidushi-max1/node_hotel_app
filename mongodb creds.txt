@@ -1,0 +1,14 @@
+mongodb creds
+--------------------------------
+email = vonav66810@avastu.com
+name = Rohan Mundra
+password = P@ssword123321
+
+
+--------------------------------
+
+cluster creds
+--------------------------------
+username = vonav66810
+password = Dj792cLHKrect06q
+mongodbURL = mongodb+srv://vonav66810:Dj792cLHKrect06q@cluster0.urgchd1.mongodb.net/

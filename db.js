@@ -1,5 +1,6 @@
 //importing mongoose
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 //mongoose create default object that represents mongoDB connection
 mongoose.connect(process.env.mongodbURL)
@@ -16,6 +17,10 @@ const db = mongoose.connection;
 db.on('disconnected', () => {
     console.log('mongodb server disconnected');
 })
+
+// db.on('connected', () => {
+//     console.log('mongodb server connected');
+// })
 
 db.on('error', (error) => {
     console.log('error in connecting to mongodb server:', error);

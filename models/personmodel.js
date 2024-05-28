@@ -2,38 +2,41 @@ const mongoose = require('mongoose');
 
 
 //define the person schema
-const personSchema =new mongoose.Schema({
-    name:{
-        type:String,
+const personSchema = new mongoose.Schema({
+    name: {
+        type: String,
         required: true
     },
-    age:{
-        type:Number,    
+    age: {
+        type: Number,
     },
-    work:{
-        type:String,
-        enum:['chef','waiter','manager'],
-        required:true
+    work: {
+        type: String,
+        enum: ['chef', 'waiter', 'manager'],
+        required: true
     },
-    email:{
-        type:String,
+    email: {
+        type: String,
         required: true,
-        unique:true
+        unique: true
     },
-    mobile:{
-        type:String,
+    mobile: {
+        type: String,
         required: true
     },
-    address:{
-        type:String,
+    address: {
+        type: String,
     },
-    salary:{
-        type:Number,
+    salary: {
+        type: Number,
         required: true
-    },  
+    },
 })
+
 //create person model
-const personmodel = mongoose.model('personmodel',personSchema);
+//const MyModel = mongoose.model('ModelName', mySchema);
+// The first argument is the singular name of the collection your model is for. Mongoose automatically looks for the plural version of your model name.
+const personmodel = mongoose.model('personmodel', personSchema);
 
 //export person model
-module.exports= personmodel;
+module.exports = personmodel;
