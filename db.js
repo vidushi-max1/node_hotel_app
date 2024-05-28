@@ -2,13 +2,24 @@
 const mongoose = require('mongoose');
 
 //mongoose create default object that represents mongoDB connection
-const db = mongoose.connect(process.env.mongodbURL)
-.then(() => {
-    console.log('Connected to MongoDB');
+mongoose.connect(process.env.mongodbURL)
+    .then(() => {
+        console.log('Connected to MongoDB');
+    })
+    .catch((error) => {
+        console.error('Error connecting to MongoDB:', error);
+    });
+
+const db = mongoose.connection;
+
+//Event listener
+db.on('disconnected', () => {
+    console.log('mongodb server disconnected');
 })
-.catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
-});
+
+db.on('error', (error) => {
+    console.log('error in connecting to mongodb server:', error);
+})
 
 //export the database connecion
 module.exports = db;
@@ -46,5 +57,3 @@ module.exports = db;
 // db.on('error',(err) =>{
 //     console.log("error",err);
 // });
-
-
