@@ -6,14 +6,21 @@ const personRoutes = require('./routes/personRoute');
 const menuRoutes = require('./routes/menuRoute');
 const drinkRoutes = require('./routes/drinkRoute');
 require('dotenv').config();
+const passport = require('./auth');
 
+
+//Define PORT from .env file
 const PORT = process.env.PORT || 3000;
 
+//middlewares
 app.use(bodyParser.json());
 
-app.get('/', function(req, res) {
-    res.send('welcome vidu')
-})
+app.use(passport.initialize());
+const localAuthMiddleware = passport.authenticate('local', { session: false });
+
+app.get('/', localAuthMiddleware, function(req, res) {
+    res.send('Welcome to the Hotel.');
+});
 
 app.use('/person', personRoutes);
 app.use('/menu', menuRoutes);
