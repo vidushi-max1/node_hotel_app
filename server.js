@@ -4,6 +4,7 @@ const app = express()
 const db = require('./db');
 const personRoutes = require('./routes/personRoute');
 const menuRoutes = require('./routes/menuRoute');
+const drinkRoutes = require('./routes/drinkRoute');
 require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
@@ -16,11 +17,12 @@ app.get('/', function(req, res) {
 
 app.use('/person', personRoutes);
 app.use('/menu', menuRoutes);
+app.use('/drink', drinkRoutes);
 //---------------------------------------------------------------------------------------------------------------
 
 
 
 
 app.listen(PORT, () => {
-    console.log(`listening on port {PORT}`);
+    console.log(`listening on port ${PORT}`);
 })
